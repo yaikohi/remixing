@@ -2,6 +2,12 @@
 import type { LoaderFunction } from "@remix-run/node";
 import { requireUserId } from "~/utils/auth.server";
 
+/**
+ *  Remix runs the loader function before serving your page.
+ *  This means any redirects in a loader will trigger before your page can be served.
+ *
+ *  src: https://www.prisma.io/blog/fullstack-remix-prisma-mongodb-2-ZTmOy58p4re8
+ */
 export const loader: LoaderFunction = async ({ request }) => {
   await requireUserId(request);
   return null;
