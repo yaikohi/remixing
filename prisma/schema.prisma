@@ -16,4 +16,11 @@ model User {
   updatedAt DateTime @updatedAt
   email     String   @unique
   password  String
+  profile   Profile
+}
+
+// Composite type, allows for document-in-document typing etc.
+type Profile {
+  firstName String
+  lastName  String
 }
