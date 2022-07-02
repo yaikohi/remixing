@@ -39,9 +39,9 @@ export const action: ActionFunction = async ({ request }) => {
     password: validatePassword(password),
     ...(action === "register"
       ? {
-          firstName: validateName((firstName as string) || ""),
-          lastName: validateName((lastName as string) || ""),
-        }
+        firstName: validateName((firstName as string) || ""),
+        lastName: validateName((lastName as string) || ""),
+      }
       : {}),
   };
 
@@ -89,8 +89,8 @@ export default function Login() {
     <Layout>
       <div className="flex flex-col items-center justify-center h-full gap-y-4">
         <button
-          onClick={() => setAction(action == "login" ? "register" : "login")}
-          className="absolute px-3 py-2 font-semibold transition duration-300 ease-in-out bg-blue-200 text-violet-800 hover:border hover:text-violet-900 top-8 right-8 rounded-xl hover:border-blue-300 hover:-translate-y-1"
+          onClick={() => setAction(action === "login" ? "register" : "login")}
+          className="absolute px-3 py-2 font-semibold transition duration-300 ease-in-out bg-blue-200 text-violet-800 hover:border hover:text-violet-900 top-8 right-8 rounded-xl dark:hover:text-white dark:text-violet-300 dark:bg-slate-700 hover:border-blue-300 hover:-translate-y-1"
         >
           {action === "login" ? "Sign Up" : "Sign In"}
         </button>
@@ -106,7 +106,7 @@ export default function Login() {
 
         <form
           method="POST"
-          className="p-6 bg-blue-100 dark:bg-slate-900 rounded-2xl w-96"
+          className="p-6 bg-blue-100 dark:bg-slate-800 rounded-2xl w-96"
         >
           <FormField
             htmlFor="email"
@@ -144,7 +144,7 @@ export default function Login() {
               type="submit"
               name="_action"
               value={action}
-              className="px-3 py-2 mt-2 font-semibold transition duration-300 ease-in-out bg-blue-200 hover:border-blue-300 hover:border text-violet-800 hover:text-violet-900 dark:text-violet-300 dark:bg-slate-900 rounded-xl dark:hover:bg-violet-900 hover:-translate-y-1"
+              className="px-3 py-2 mt-2 font-semibold transition duration-300 ease-in-out bg-blue-200 hover:border-blue-300 hover:border text-violet-800 hover:text-violet-900 dark:text-violet-300 dark:hover:text-white dark:bg-slate-700 rounded-xl dark:hover:bg-violet-900 hover:-translate-y-1"
             >
               {action === "login" ? "Sign In" : "Sign Up"}
             </button>
