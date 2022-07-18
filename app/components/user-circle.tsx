@@ -1,23 +1,23 @@
-import { Profile } from '@prisma/client'
+import { Profile } from "@prisma/client"
 
 interface Props {
-    profile: Profile
-    className?: string
-    onClick?: (...args: any) => any
+  profile: Profile
+  className?: string
+  onClick?: (...args: any) => any
 }
 
 export function UserCircle({ profile, onClick, className }: Props) {
-    return (
-        <>
-            <div className={`${className} cursor-pointer bg-slate-600 rounded-full flex justify-center items-center`}
-                onClick={onClick}
-            >
-                <h2>
-                    {profile.firstName.charAt(0).toUpperCase()}
-                    {profile.lastName.charAt(0).toUpperCase()}
-                </h2>
-
-            </div>
-        </>
-    )
+  return (
+    <>
+      <div
+        className={`${className} cursor-pointer bg-slate-600 rounded-full flex justify-center items-center`}
+        onClick={onClick}
+      >
+        <h2>
+          {profile.firstName.charAt(0).toUpperCase()}
+          {profile.lastName.charAt(0).toUpperCase()}
+        </h2>
+      </div>
+    </>
+  )
 }
